@@ -34,8 +34,8 @@ enum Command {
     Explain,
     #[command(description = "help command")]
     Help,
-    #[command(description = "summarize the last 100 messages")]
-    SummarizeRecent,
+    // #[command(description = "summarize the last 100 messages")]
+    // SummarizeRecent,
 }
 
 async fn answer(bot: Bot, msg: Message, cmd: Command) -> ResponseResult<()> {
@@ -142,12 +142,12 @@ async fn answer(bot: Bot, msg: Message, cmd: Command) -> ResponseResult<()> {
                 .await?;
             info!("Help command processed.");
         }
-        Command::SummarizeRecent => {
-            bot.send_message(msg.chat.id, "This command is not implemented yet.")
-                .reply_to_message_id(msg.id)
-                .await?;
-            warn!("SummarizeRecent command is not implemented yet.");
-        }
+        // Command::SummarizeRecent => {
+        //     bot.send_message(msg.chat.id, "This command is not implemented yet.")
+        //         .reply_to_message_id(msg.id)
+        //         .await?;
+        //     warn!("SummarizeRecent command is not implemented yet.");
+        // }
     };
 
     Ok(())
